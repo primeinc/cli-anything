@@ -9,27 +9,30 @@ Build a complete, stateful CLI harness for any GUI application.
 ## Usage
 
 ```bash
-/cli-anything <software-path-or-repo>
+/cli-anything <software-path-repo-or-url>
 ```
 
 ## Arguments
 
-- `<software-path-or-repo>` - **Required.** Either:
+- `<software-path-repo-or-url>` - **Required.** One of:
   - A **local path** to the software source code (e.g., `/home/user/gimp`, `./blender`)
   - A **GitHub repository URL** (e.g., `https://github.com/GNOME/gimp`, `github.com/blender/blender`)
+  - A **live web application URL** (e.g., `https://titlesolutions.qualia.io`)
 
   If a GitHub URL is provided, the agent clones the repo locally first, then works on the local copy.
+  If a web application URL is provided, the agent analyzes the running product directly by inspecting the UI, network behavior, workflows, and any publicly discoverable docs instead of requiring source access.
 
-  **Note:** Software names alone (e.g., "gimp") are NOT accepted. You must provide the actual source code path or repository URL so the agent can analyze the codebase.
+  **Note:** Software names alone (e.g., "gimp") are NOT accepted. You must provide an actual source path, repository URL, or live application URL so the agent has something concrete to analyze.
 
 ## What This Command Does
 
 This command implements the complete cli-anything methodology to build a production-ready CLI harness for any GUI application. **All phases follow the standards defined in HARNESS.md.**
 
 ### Phase 0: Source Acquisition
-- If `<software-path-or-repo>` is a GitHub URL, clone it to a local working directory
-- Verify the local path exists and contains source code
-- Derive the software name from the directory name (e.g., `/home/user/gimp` -> `gimp`)
+- If `<software-path-repo-or-url>` is a GitHub URL, clone it to a local working directory
+- If it is a local path, verify the path exists and contains source code
+- If it is a live web application URL, open it directly and identify its core workflows, state model, navigation patterns, and externally visible operations
+- Derive the software name from the directory name or URL hostname/path (e.g., `/home/user/gimp` -> `gimp`, `https://titlesolutions.qualia.io` -> `titlesolutions-qualia`)
 
 ### Phase 1: Codebase Analysis
 - Analyzes the local source code
@@ -108,6 +111,9 @@ This command implements the complete cli-anything methodology to build a product
 
 # Build from a GitHub repo
 /cli-anything https://github.com/blender/blender
+
+# Build from a live web app
+/cli-anything https://titlesolutions.qualia.io
 ```
 
 ## Success Criteria

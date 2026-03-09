@@ -79,7 +79,7 @@ That's it. The plugin is now available in your Claude Code session.
 ### Step 3: Build a CLI in One Command
 
 ```bash
-# /cli-anything <software-path-or-repo>
+# /cli-anything <software-path-repo-or-url>
 # Generate a complete CLI for GIMP (all 7 phases)
 /cli-anything ./gimp
 ```
@@ -435,7 +435,7 @@ Each `agent-harness/` contains an installable Python package under `cli_anything
 
 | Command | Description |
 |---------|-------------|
-| `/cli-anything <software-path-or-repo>` | Build complete CLI harness — all 7 phases |
+| `/cli-anything <software-path-repo-or-url>` | Build complete CLI harness — all 7 phases |
 | `/cli-anything:refine <software-path> [focus]` | Refine an existing harness — expand coverage with gap analysis |
 | `/cli-anything:test <software-path-or-repo>` | Run tests and update TEST.md with results |
 | `/cli-anything:validate <software-path-or-repo>` | Validate against HARNESS.md standards |
@@ -448,6 +448,9 @@ Each `agent-harness/` contains an installable Python package under `cli_anything
 
 # Build from a GitHub repo
 /cli-anything https://github.com/blender/blender
+
+# Build from a live web app
+/cli-anything https://titlesolutions.qualia.io
 
 # Refine an existing harness — broad gap analysis
 /cli-anything:refine /home/user/gimp

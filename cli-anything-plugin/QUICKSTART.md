@@ -22,6 +22,9 @@ Let's build a CLI for a simple GUI application:
 ```bash
 # Build complete CLI harness for GIMP
 /cli-anything gimp
+
+# Or target a live web app directly
+/cli-anything https://titlesolutions.qualia.io
 ```
 
 This will:
@@ -32,6 +35,8 @@ This will:
 5. ✅ Write and run tests
 6. ✅ Document results
 7. ✅ Create setup.py and install to PATH
+
+For live web apps, the analysis phase inspects the running product's workflows, screens, and observable behavior instead of cloning source code first.
 
 **Time:** ~10-15 minutes (depending on complexity)
 

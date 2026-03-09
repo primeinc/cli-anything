@@ -53,9 +53,9 @@ pip install click pytest
 
 ## Commands
 
-### `/cli-anything <software-path-or-repo>`
+### `/cli-anything <software-path-repo-or-url>`
 
-Build a complete CLI harness for any software application. Accepts a local path to the software source code or a GitHub repository URL.
+Build a complete CLI harness for any software application. Accepts a local source path, a GitHub repository URL, or a live web application URL such as `https://titlesolutions.qualia.io`.
 
 **Examples:**
 ```bash
@@ -64,10 +64,13 @@ Build a complete CLI harness for any software application. Accepts a local path 
 
 # Build from a GitHub repo
 /cli-anything https://github.com/blender/blender
+
+# Build from a live web app
+/cli-anything https://titlesolutions.qualia.io
 ```
 
 This runs all 7 phases:
-1. Source Acquisition (clone if GitHub URL)
+1. Source Acquisition (clone if GitHub URL, inspect directly if live web app URL)
 2. Codebase Analysis
 3. CLI Architecture Design
 4. Implementation

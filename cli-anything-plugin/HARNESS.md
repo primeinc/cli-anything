@@ -1,13 +1,20 @@
-# Agent Harness: GUI-to-CLI for Open Source Software
+# Agent Harness: GUI-to-CLI for Software and Web Apps
 
 ## Purpose
 
 This harness provides a standard operating procedure (SOP) and toolkit for coding
 agents (Claude Code, Codex, etc.) to build powerful, stateful CLI interfaces for
-open-source GUI applications. The goal: let AI agents operate software that was
+GUI applications and web apps. The goal: let AI agents operate software that was
 designed for humans, without needing a display or mouse.
 
 ## General SOP: Turning Any GUI App into an Agent-Usable CLI
+
+If source code is available, analyze the codebase directly. If the target is a live
+web application URL such as `https://titlesolutions.qualia.io`, analyze the running
+product instead: inspect navigation, user workflows, forms, visible state, network
+behavior, and any publicly available documentation or API surface you can discover.
+The resulting CLI should still expose stable, task-oriented operations rather than
+raw click sequences.
 
 ### Phase 1: Codebase Analysis
 
